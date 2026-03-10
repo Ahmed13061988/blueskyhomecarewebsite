@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ title or "Blue Sky Home Care" }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-controls">
+      <button id="btn-back" class="control">← Back</button>
+      <a class="control control-home" href="{{ url_for('index') }}">🏠 Home</a>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand-group">
+          <div class="logo-house-heart"></div>
+          <h1 class="brand">Blue Sky Home Care</h1>
+        </div>
+
+        <nav class="main-nav">
+          <a href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+      </div>
+      <div class="header-banner">
+        <div class="container">
+          <p class="tagline">
+            Compassionate care under the blue sky — personalized support at home
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h4>Blue Sky Home Care</h4>
+          <p>Providing heart-centered care for your loved ones.</p>
+        </div>
+        <div>
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact Info</h5>
+          <p>
+            <strong>Address:</strong> 1234 Parker Ave, Suite 5A<br />
+            <strong>Phone:</strong> +1 (720) 309-7183<br />
+            <strong>Email:</strong> blueskyhomecare@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year">2026</span> Blue Sky Home Care. All rights
+        reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Back button logic
+      document
+        .getElementById("btn-back")
+        ?.addEventListener("click", function () {
+          try {
+            if (window.history.length > 1) {
+              window.history.back();
+            } else {
+              window.location.href = "{{ url_for('index') }}";
+            }
+          } catch (e) {
+            window.location.href = "{{ url_for('index') }}";
+          }
+        });
+
+      // Set current year in footer
+      try {
+        document.getElementById("year").textContent = new Date().getFullYear();
+      } catch (e) {}
+    </script>
+  </body>
+</html>

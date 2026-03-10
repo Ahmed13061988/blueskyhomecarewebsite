@@ -1,0 +1,317 @@
+/* --- Google Fonts --- */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;400;600&display=swap");
+
+/* --- Variables & Reset --- */
+:root {
+  --primary: #0077b6; /* Vibrant Ocean Blue */
+  --secondary: #ff758f; /* Warm Rose Pink */
+  --accent-light: #ffafbd; /* Soft Pink */
+  --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #fff1f2 100%);
+  --text-main: #2d3436;
+  --text-muted: #5d7185;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --shadow: 0 8px 20px rgba(255, 117, 143, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Navigation & Header --- */
+.site-header {
+  background: white;
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Unique CSS Logo (House-Heart Hybrid) */
+.logo-house-heart {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  /* Creates a unique house-heart badge shape */
+  clip-path: polygon(
+    10% 25%,
+    50% 0%,
+    90% 25%,
+    90% 80%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    10% 80%
+  );
+}
+
+.brand {
+  margin: 0;
+  font-family: "Merriweather", serif;
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.main-nav a {
+  margin-left: 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--secondary);
+}
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  background:
+    linear-gradient(45deg, rgba(0, 119, 182, 0.75), rgba(255, 117, 143, 0.75)),
+    url("/static/images/hero.svg") center/cover;
+  padding: 50px 30px;
+  border-radius: 24px;
+  text-align: center;
+  color: white;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-family: "Merriweather", serif;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  opacity: 0.95;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--secondary);
+  color: white;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 117, 143, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 117, 143, 0.4);
+}
+
+/* --- Services Accordion --- */
+.services h3 {
+  font-family: "Merriweather", serif;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 25px 0 15px;
+  color: var(--primary);
+}
+
+.services-accordion {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.service-card[open] {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow);
+}
+
+.service-header {
+  padding: 15px 25px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-header::-webkit-details-marker {
+  display: none;
+}
+
+.service-header h4 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.service-content {
+  padding: 0 25px 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.service-content ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  list-style: none;
+  padding: 10px 0 0;
+}
+
+.service-content li::before {
+  content: "♥";
+  color: var(--secondary);
+  margin-right: 10px;
+}
+
+.icon {
+  color: var(--secondary);
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.service-card[open] .icon {
+  transform: rotate(180deg);
+}
+
+/* --- About Section (Grid) --- */
+.about {
+  margin-top: 20px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #fff;
+  box-shadow: var(--shadow);
+}
+
+.about-text h3 {
+  font-family: "Merriweather", serif;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Footer Section --- */
+.site-footer {
+  margin-top: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 40px 20px 20px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-brand h4 {
+  font-family: "Merriweather", serif;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .main-nav a {
+    margin: 0 10px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-img-wrapper {
+    order: -1;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+}

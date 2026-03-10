@@ -1,0 +1,98 @@
+{% extends "layout.html" %} {% block content %}
+<section class="hero hero-bg">
+  <div class="hero-inner container">
+    <h2>Welcome to Blue Sky Home Care</h2>
+    <p>
+      Professional Support for the Place You Love Most: Home. We provide
+      compassionate, non-medical living assistance designed to help seniors and
+      individuals with disabilities maintain their independence, dignity, and
+      joy—all from the comfort of their own home.
+    </p>
+    <a class="cta" href="{{ url_for('contact') }}">Get In Touch</a>
+  </div>
+</section>
+
+<section class="services container">
+  <h3>Our Services</h3>
+  <div class="services-accordion">
+    <details class="service-card">
+      <summary class="service-header">
+        <h4>Personal Care & Hygiene</h4>
+        <span class="icon">▼</span>
+      </summary>
+      <div class="service-content">
+        <p>
+          Our most hands-on level of support, focusing on the Activities of
+          Daily Living (ADLs). We help maintain dignity and physical health when
+          mobility becomes a challenge.
+        </p>
+        <ul>
+          <li>Assistance with bathing, grooming, and dressing</li>
+          <li>Toileting and incontinence care</li>
+          <li>Safe "transferring" (help getting in/out of bed or chairs)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="service-card">
+      <summary class="service-header">
+        <h4>Companion & Social Support</h4>
+        <span class="icon">▼</span>
+      </summary>
+      <div class="service-content">
+        <p>
+          Focused on mental well-being and preventing isolation. We ensure our
+          clients remain engaged, connected, and emotionally supported.
+        </p>
+        <ul>
+          <li>Meaningful conversation and companionship</li>
+          <li>Help with hobbies, games, and mental stimulation</li>
+          <li>Accompanying to social outings or appointments</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="service-card">
+      <summary class="service-header">
+        <h4>Homemaking & Practical Help</h4>
+        <span class="icon">▼</span>
+      </summary>
+      <div class="service-content">
+        <p>
+          We handle the daily chores that have become physically taxing,
+          ensuring the home remains a safe, clean, and stress-free environment.
+        </p>
+        <ul>
+          <li>Light housekeeping (laundry, dishes, tidying)</li>
+          <li>Nutritious meal preparation</li>
+          <li>Grocery shopping and errands</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="about container">
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>About Blue Sky Home Care</h3>
+      <p>
+        At Blue Sky Home Care, we believe that aging is a beautiful journey that
+        should be experienced with grace and familiarity. Our team is dedicated
+        to providing more than just assistance; we provide companionship and
+        peace of mind for the entire family. By matching our clients with
+        highly-trained, compassionate caregivers, we ensure that your loved ones
+        receive the specific care they need to thrive safely in the environment
+        they love most.
+      </p>
+    </div>
+    <div class="about-img-wrapper">
+      <img
+        class="about-image"
+        alt="Caregiver helping senior"
+        src="{{ url_for('static', filename='images/about.svg') }}"
+      />
+    </div>
+  </div>
+</section>
+{% endblock %}
